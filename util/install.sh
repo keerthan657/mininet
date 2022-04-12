@@ -106,7 +106,7 @@ function version_ge {
 PYTHON=${PYTHON:-python}
 PRINTVERSION='import sys; print(sys.version_info)'
 PYTHON_VERSION=unknown
-for python in $PYTHON python2 python3; do
+for python in $PYTHON python3; do
     if $python -c "$PRINTVERSION" |& grep 'major=2'; then
         PYTHON=$python; PYTHON_VERSION=2; PYPKG=python
         break
@@ -238,7 +238,7 @@ function of {
     else
         $install git-core autotools-dev pkg-config libc6-dev
     fi
-    # was: git clone git://openflowswitch.org/openflow.git
+    # was: git clone https://openflowswitch.org/openflow.git
     # Use our own fork on github for now:
     git clone https://github.com/mininet/openflow
     cd $BUILD_DIR/openflow
@@ -653,7 +653,7 @@ function cbench {
         $install libsnmp-dev libpcap-dev libconfig-dev
     fi
     cd $BUILD_DIR/
-    # was:  git clone git://gitosis.stanford.edu/oflops.git
+    # was:  git clone https://gitosis.stanford.edu/oflops.git
     # Use our own fork on github for now:
     git clone https://github.com/mininet/oflops
     cd oflops
